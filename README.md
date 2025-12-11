@@ -2,7 +2,7 @@
 
 ## Version
 
-firebase-tools: v14.27.0<br>
+firebase-tools: v14.27.0(also with v15.0.0)<br>
 
 ## Steps to reproduce
 
