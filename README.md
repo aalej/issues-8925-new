@@ -1,0 +1,46 @@
+# new repro for issue 8925
+
+## Version
+
+firebase-tools: v14.27.0<br>
+
+## Steps to reproduce
+
+1. Install dependencies
+   - Run `cd functions`
+   - Run `npm i`
+   - Run `cd ../`
+2. Run `firebase deploy --only functions --project PROJECT_ID`
+
+```
+$ firebase deploy --only functions --project PROJECT_ID
+
+=== Deploying to 'PROJECT_ID'...
+
+i  deploying functions
+i  functions: preparing codebase default for deployment
+i  functions: ensuring required API cloudfunctions.googleapis.com is enabled...
+i  functions: ensuring required API cloudbuild.googleapis.com is enabled...
+i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled...
+i  functions: Loading and analyzing source code for codebase default to determine what to deploy
+Serving at port 8948
+
+i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled...
+i  functions: preparing functions directory for uploading...
+i  functions: packaged /Users/alejandromarco/Desktop/firebase-tools/issues/8925-new/functions (68.51 KB) for uploading
+i  functions: packaged /Users/alejandromarco/Desktop/firebase-tools/issues/8925-new/functions (68.51 KB) for uploading
+i  functions: ensuring required API run.googleapis.com is enabled...
+i  functions: ensuring required API eventarc.googleapis.com is enabled...
+i  functions: ensuring required API pubsub.googleapis.com is enabled...
+i  functions: ensuring required API storage.googleapis.com is enabled...
+i  functions: generating the service identity for pubsub.googleapis.com...
+i  functions: generating the service identity for eventarc.googleapis.com...
+✔  functions: functions source uploaded successfully
+i  functions: creating Node.js 22 (2nd Gen) function newUser(europe-west1)...
+i  functions: creating Node.js 22 (1st Gen) function helloWorld(us-central1)...
+✔  functions[helloWorld(us-central1)] Successful create operation.
+✔  functions[newUser(europe-west1)] Successful create operation.
+Function URL (helloWorld(us-central1)): https://us-central1-PROJECT_ID.cloudfunctions.net/helloWorld
+
+✔  Deploy complete!
+```
